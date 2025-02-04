@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Blender.Community.Textformatter
 // @namespace   https://github.com/L0Lock/Blender.Community.Textformatter
-// @version     1.0.0
+// @version     1.0.1
 // @description A userscript to quickly format text in Blender.Community posts and comments
 // @author      L0Lock
 // @match       https://blender.community/*
