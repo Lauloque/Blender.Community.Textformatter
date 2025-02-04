@@ -1,3 +1,4 @@
+// ==UserScript==
 // @name        Blender.Community.Textformatter
 // @namespace   https://github.com/L0Lock/Blender.Community.Textformatter
 // @version     1.0.0
@@ -6,6 +7,7 @@
 // @match       https://blender.community/*
 // @grant       GM_setValue
 // @grant       GM_getValue
+// @require     https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @updateURL   https://raw.githubusercontent.com/L0Lock/Blender.Community.Textformatter/main/blender_community_textformatter.user.js
 // @downloadURL https://raw.githubusercontent.com/L0Lock/Blender.Community.Textformatter/main/blender_community_textformatter.user.js
 // ==/UserScript==
@@ -150,28 +152,4 @@ function main() {
     }
 
     startInjection();
-}
-
-// Ensure jQuery is available, then start the script
-if (typeof jQuery === "function") {
-    console.log("Running with local copy of jQuery!");
-    main(jQuery);
-} else {
-    console.log("Fetching jQuery from a 3rd-party server.");
-    add_jQuery(main, "1.7.2");
-}
-
-function add_jQuery(callbackFn, jqVersion) {
-    var jqVersion = jqVersion || "1.7.2";
-    var D = document;
-    var targ = D.getElementsByTagName('head')[0] || D.body || D.documentElement;
-    var scriptNode = D.createElement('script');
-    scriptNode.src = 'http://ajax.googleapis.com/ajax/libs/jquery/' + jqVersion + '/jquery.min.js';
-    scriptNode.addEventListener("load", function () {
-        var scriptNode = D.createElement("script");
-        scriptNode.textContent =
-            'var gm_jQuery = jQuery.noConflict(true);\n' + '(' + callbackFn.toString() + ')(gm_jQuery);';
-        targ.appendChild(scriptNode);
-    }, false);
-    targ.appendChild(scriptNode);
 }
