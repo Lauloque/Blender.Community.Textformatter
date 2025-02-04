@@ -4,7 +4,8 @@
 // @description A userscript to quickly format text in Blender.Community posts and comments
 // @author      L0Lock
 // @match       https://blender.community/*
-// @grant       none
+// @grant       GM_setValue
+// @grant       GM_getValue
 // @updateURL   https://raw.githubusercontent.com/L0Lock/Blender.Community.Textformatter/main/blender_community_textformatter.user.js
 // @downloadURL https://raw.githubusercontent.com/L0Lock/Blender.Community.Textformatter/main/blender_community_textformatter.user.js
 // ==/UserScript==
