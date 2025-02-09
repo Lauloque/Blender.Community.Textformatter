@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Blender.Community.Textformatter
 // @namespace   https://github.com/L0Lock/Blender.Community.Textformatter
-// @version     1.0.1
+// @version     1.0.2
 // @description A userscript to quickly format text in Blender.Community posts and comments
 // @author      L0Lock
 // @match       https://blender.community/*
@@ -35,7 +35,7 @@ function get_prefs() {
 // Main script
 function main() {
     var pref_extra_markdown = 0;
-    console.log("running main!");
+    console.log("Initializing Blender Community Text Formatter.");
 
     function startInjection() {
         // Define keyboard shortcut event handler (Ctrl+Y)
@@ -153,3 +153,5 @@ function main() {
 
     startInjection();
 }
+
+main();
