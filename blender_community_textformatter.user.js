@@ -40,15 +40,14 @@ function main() {
     function startInjection() {
         // Define keyboard shortcut event handler (Ctrl+Y)
         $(document).on('keydown', "textarea", function (e) {
-            if (e.ctrlKey && (e.which === 89)) {
-                // Ctrl+Y for redo
+            if (e.ctrlKey && (e.code === KeyY)) {
                 e.stopImmediatePropagation();
-                insertTextTag(this);
+                formatSpecials(this);
             }
         });
     }
 
-    function insertTextTag(txta) {
+    function formatSpecials(txta) {
         if (txta.selectionStart == null) return;
 
         var start = txta.selectionStart;
