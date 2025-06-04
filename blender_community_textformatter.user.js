@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Blender.Community.Textformatter
 // @namespace   https://github.com/L0Lock/Blender.Community.Textformatter
-// @version     1.0.5
+// @version     1.0.6
 // @description A userscript to quickly format text in Blender.Community posts and comments
 // @author      L0Lock
 // @match       https://blender.community/*
@@ -38,26 +38,28 @@ function main() {
     console.log("Initializing Blender Community Text Formatter.");
 
     function startInjection() {
-        $(document).on('keydown', "textarea", function (e) {
-            if (e.ctrlKey &&) {
-                if (e.code === "KeyY") {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    formatSpecials(this);
-                    return false;
-                } else if (e.code === "KeyI") {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    formatItalic(this);
-                    return false;
-                } else if (e.code === "KeyB") {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    formatBold(this);
-                    return false;
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName.toLowerCase() === 'textarea') {
+                if (e.ctrlKey &&) {
+                    if (e.code === "KeyY") {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        formatSpecials(this);
+                        return false;
+                    } else if (e.code === "KeyI") {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        formatItalic(this);
+                        return false;
+                    } else if (e.code === "KeyB") {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        formatBold(this);
+                        return false;
+                    }
                 }
             }
-        });
+        }, true);
     }
 
     function formatItalic(txta) {
