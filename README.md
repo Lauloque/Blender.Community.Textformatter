@@ -9,10 +9,11 @@ Blender.Community adaptation made by Lauloque
 
 ## 🛠 Features
 
+- Better *Italic* and **Bold** formatting with <kbd>&#9096; Ctrl</kbd><kbd>I</kbd> and <kbd>&#9096; Ctrl</kbd><kbd>B</kbd>
 - Converts `edit` into `[edit](./edit)`, a clickable link for a post's author to edit their own post.
 - Automatically formats keyboard shortcuts  
-  (e.g., `ctrl alt s` converts to `[[&#9096; Ctrl]] [[&#9095; Alt]] [[S]]` and looks like this: <kbd>&#9096; Ctrl</kbd><kbd>&#9095; Alt</kbd><kbd>s</kbd>)
-- Supports function keys, navigation keys, mouse buttons, and OS keys
+  E.G. `ctrl alt s` converts to `[[&#9096; Ctrl]] [[&#9095; Alt]] [[S]]` and looks like this: <kbd>&#9096; Ctrl</kbd><kbd>&#9095; Alt</kbd><kbd>s</kbd>);  
+  Supports function keys, navigation keys, mouse buttons, and OS keys;
 - Works in all textareas on Blender.Community, including Right Click Select.
 
 ## 📥 Installation
