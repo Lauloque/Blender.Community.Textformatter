@@ -38,17 +38,64 @@ function main() {
     console.log("Initializing Blender Community Text Formatter.");
 
     function startInjection() {
-        // Define keyboard shortcut event handler (Ctrl+Y)
         $(document).on('keydown', "textarea", function (e) {
-            if (e.ctrlKey && (e.code === KeyY)) {
-                e.stopImmediatePropagation();
-                formatSpecials(this);
+            if (e.ctrlKey &&) {
+                if (e.code === "KeyY") {
+                    e.stopImmediatePropagation();
+                    formatSpecials(this);
+                } else if (e.code === "KeyI") {
+                    e.stopImmediatePropagation();
+                    formatItalic(this);
+                } else if (e.code === "KeyB") {
+                    e.stopImmediatePropagation();
+                    formatItalic(this);
+                }
             }
         });
     }
 
+    funtion formatItalic(txta) {
+        var start = txta.selectionStart;
+        var end = txta.selectionEnd;
+
+        if (start === end) {
+            textToInsert = "*Your Text*"
+            txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
+
+            txta.selectionStart = start + 1;
+            txta.selectionEnd = start + textToInsert.length - 1
+        } else {
+            var selectedText = txta.value.substring(start, end);
+            var newText = "*" + selectedText + "*";
+            txta.value = txta.value.substring(0, start) + newText + txta.value.substring(end);
+
+            txta.selectionStart = start+ newText.length;
+            txta.selectionEnd = txta.selectionStart;
+        }
+    }
+
+    funtion formatBold(txta) {
+        var start = txta.selectionStart;
+        var end = txta.selectionEnd;
+
+        if (start === end) {
+            textToInsert = "**Your Text**"
+            txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
+
+            txta.selectionStart = start + 1;
+            txta.selectionEnd = start + textToInsert.length - 1
+        } else {
+            var selectedText = txta.value.substring(start, end);
+            var newText = "**" + selectedText + "**";
+            txta.value = txta.value.substring(0, start) + newText + txta.value.substring(end);
+
+            txta.selectionStart = start+ newText.length;
+            txta.selectionEnd = txta.selectionStart;
+        }
+    }
+
     function formatSpecials(txta) {
-        if (txta.selectionStart == null) return;
+        if (txta.selectionStart === txta.selectionEnd) return;
 
         var start = txta.selectionStart;
         var end = txta.selectionEnd;
