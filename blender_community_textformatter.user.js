@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Blender.Community.Textformatter
 // @namespace   https://github.com/L0Lock/Blender.Community.Textformatter
-// @version     1.0.7
+// @version     1.0.8
 // @description A userscript to quickly format text in Blender.Community posts and comments
 // @author      L0Lock
 // @match       https://blender.community/*
@@ -93,8 +93,8 @@ function main() {
             var textToInsert = "**Your Text**";
             txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
 
-            txta.selectionStart = start + 1;
-            txta.selectionEnd = start + textToInsert.length - 1;
+            txta.selectionStart = start + 2;
+            txta.selectionEnd = start + textToInsert.length - 2;
         } else {
             var selectedText = txta.value.substring(start, end);
             var newText = "**" + selectedText + "**";
