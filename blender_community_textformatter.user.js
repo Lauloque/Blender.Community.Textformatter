@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Blender.Community.Textformatter
 // @namespace   https://github.com/L0Lock/Blender.Community.Textformatter
-// @version     1.0.6
+// @version     1.0.7
 // @description A userscript to quickly format text in Blender.Community posts and comments
 // @author      L0Lock
 // @match       https://blender.community/*
@@ -40,21 +40,21 @@ function main() {
     function startInjection() {
         document.addEventListener('keydown', function(e) {
             if (e.target.tagName.toLowerCase() === 'textarea') {
-                if (e.ctrlKey &&) {
+                if (e.ctrlKey) {
                     if (e.code === "KeyY") {
                         e.preventDefault();
                         e.stopImmediatePropagation();
-                        formatSpecials(this);
+                        formatSpecials(e.target);
                         return false;
                     } else if (e.code === "KeyI") {
                         e.preventDefault();
                         e.stopImmediatePropagation();
-                        formatItalic(this);
+                        formatItalic(e.target);
                         return false;
                     } else if (e.code === "KeyB") {
                         e.preventDefault();
                         e.stopImmediatePropagation();
-                        formatBold(this);
+                        formatBold(e.target);
                         return false;
                     }
                 }
@@ -67,11 +67,11 @@ function main() {
         var end = txta.selectionEnd;
 
         if (start === end) {
-            var textToInsert = "*Your Text*"
+            var textToInsert = "*Your Text*";
             txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
 
             txta.selectionStart = start + 1;
-            txta.selectionEnd = start + textToInsert.length - 1
+            txta.selectionEnd = start + textToInsert.length - 1;
         } else {
             var selectedText = txta.value.substring(start, end);
             var newText = "*" + selectedText + "*";
@@ -90,11 +90,11 @@ function main() {
         var end = txta.selectionEnd;
 
         if (start === end) {
-            var textToInsert = "**Your Text**"
+            var textToInsert = "**Your Text**";
             txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
 
             txta.selectionStart = start + 1;
-            txta.selectionEnd = start + textToInsert.length - 1
+            txta.selectionEnd = start + textToInsert.length - 1;
         } else {
             var selectedText = txta.value.substring(start, end);
             var newText = "**" + selectedText + "**";
