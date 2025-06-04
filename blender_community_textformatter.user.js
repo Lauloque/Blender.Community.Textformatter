@@ -54,12 +54,12 @@ function main() {
         });
     }
 
-    funtion formatItalic(txta) {
+    function formatItalic(txta) {
         var start = txta.selectionStart;
         var end = txta.selectionEnd;
 
         if (start === end) {
-            textToInsert = "*Your Text*"
+            var textToInsert = "*Your Text*"
             txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
 
             txta.selectionStart = start + 1;
@@ -72,14 +72,17 @@ function main() {
             txta.selectionStart = start+ newText.length;
             txta.selectionEnd = txta.selectionStart;
         }
+    
+        // make sure the textarea has focus so selection is visible
+        txta.focus();
     }
 
-    funtion formatBold(txta) {
+    function formatBold(txta) {
         var start = txta.selectionStart;
         var end = txta.selectionEnd;
 
         if (start === end) {
-            textToInsert = "**Your Text**"
+            var textToInsert = "**Your Text**"
             txta.value = txta.value.substring(0, start) + textToInsert + txta.value.substring(start);
 
             txta.selectionStart = start + 1;
